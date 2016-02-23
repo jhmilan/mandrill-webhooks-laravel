@@ -8,20 +8,25 @@ use Jhmilan\MandrillWebhooksLaravel\Contracts\MandrillWebhook;
 
 class WebhooksController extends Controller
 {
+    public function __construct(MandrillWebhook $mandrill)
+    {
+        $this->mandrill = $mandrill;
+    }
+
     /**
      * Handels a mandrill webhook
      *
      * @param string $webhook
      */
-    public function mandrill(MandrillWebhook $mandrill, Request $request, $webhook)
+    public function mandrill(Request $request, $webhook)
     {
         $url = $request->fullUrl();
         $signature = $request->header('X-Mandrill-Signature');
         $body = $request->all();
 
-        $webhook = $mandrill::accept($webhook, $url, $signature, $body);
+        $webhook = $this->mandrill->accept($webhook, $url, $signature, $body);
 
-        $mandrill->handle();
+        $this->mandrill->handle();
         return response()->json([]);
     }
 }
