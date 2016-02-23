@@ -28,7 +28,7 @@ class MandrillWebhooksLaravelServiceProvider extends ServiceProvider
 
         $this->publishes([
                 __DIR__.'/config/config.php' => config_path('mandrillwebhookslaravel.php'),
-        ]);
+        ], 'config');
 
         $this->publishes([
             __DIR__.'/Services/Jhmilan' => app_path('Services/Jhmilan')
