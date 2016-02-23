@@ -13,15 +13,15 @@ class WebhooksController extends Controller
      *
      * @param string $webhook
      */
-    public function mandrill(Request $request, $webhook)
+    public function mandrill(MandrillWebhook $mandrill, Request $request, $webhook)
     {
         $url = $request->fullUrl();
         $signature = $request->header('X-Mandrill-Signature');
         $body = $request->all();
 
-        $webhook = MandrillWebhook::accept($webhook, $url, $signature, $body);
+        $webhook = $mandrill::accept($webhook, $url, $signature, $body);
 
-        //$this->webhook->handle();
+        $mandrill->handle();
         return response()->json([]);
     }
 }
