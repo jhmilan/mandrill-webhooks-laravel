@@ -7,6 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
+### This is still under development, please do not use
 
 Just a simple package to integrate Mandrill webhooks in your Laravel application. Based on [this great post][link-cult] by [Philip Brown][link-philip] and this about [creating laravel packages][link-creating-laravel-packages] by [Cristian Tăbăcitu][link-tabacitu]
 
@@ -21,7 +22,7 @@ $ composer require jhmilan/mandrill-webhooks-laravel
 ## Usage
 
 ``` php
-php artisan jhmilan:publish
+php artisan vendor:publish
 ```
 
 ## Change log
