@@ -59,16 +59,8 @@ class MandrillWebhooksLaravelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerMandrillWebhook();
-
-        // use this if your package has a config file
-        // config([
-        //         'config/mandrillwebhookslaravel.php',
-        // ]);
-    }
-    private function registerMandrillWebhook()
-    {
         foreach (config('mandrillwebhookslaravel.services') as $contract => $service) {
+        \Log::debug("binding $contract, $service");
             $this->app->bind($contract, $service);
         }
     }
