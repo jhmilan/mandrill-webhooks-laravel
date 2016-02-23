@@ -4,7 +4,6 @@ namespace Jhmilan\MandrillWebhooksLaravel;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Jhmilan\MandrillWebhooksLaravel\Webhooks\MandrillWebhook;
 
 class MandrillWebhooksLaravelServiceProvider extends ServiceProvider
 {
@@ -27,15 +26,18 @@ class MandrillWebhooksLaravelServiceProvider extends ServiceProvider
         // use this if your package has routes
         $this->setupRoutes($this->app->router);
 
-        // use this if your package needs a config file
         $this->publishes([
                 __DIR__.'/config/config.php' => config_path('mandrillwebhookslaravel.php'),
         ]);
 
+        $this->publishes([
+            __DIR__.'/Services/Jhmilan' => app_path('Services/Jhmilan')
+        ], 'services');
+
         // use the vendor configuration file as fallback
-        // $this->mergeConfigFrom(
-        //     __DIR__.'/config/config.php', 'mandrillwebhookslaravel'
-        // );
+        $this->mergeConfigFrom(
+             __DIR__.'/config/config.php', 'mandrillwebhookslaravel'
+        );
     }
     /**
      * Define the routes for the application.
@@ -66,8 +68,9 @@ class MandrillWebhooksLaravelServiceProvider extends ServiceProvider
     }
     private function registerMandrillWebhook()
     {
-        $this->app->bind('MandrillWebhook',function($app){
-            return new MandrillWebhook($app);
+        $this->app->bind('Jhmilan\MandrillWebhooksLaravel\Contracts\Webhook',function($app){
+            $service = config('mandrillwebhookslaravel.services.mandrill');
+            return new $service($app);
         });
     }
 }

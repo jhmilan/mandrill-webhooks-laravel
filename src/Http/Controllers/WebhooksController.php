@@ -8,11 +8,6 @@ use Jhmilan\MandrillWebhooksLaravel\Webhooks\MandrillWebhook;
 
 class WebhooksController extends Controller
 {
-    public function __construct(MandrillWebhook $webhook)
-    {
-        $this->webhook = $webhook;
-    }
-
     /**
      * Handels a mandrill webhook
      *

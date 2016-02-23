@@ -1,8 +1,8 @@
 <?php
 
-namespace Jhmilan\MandrillWebhooksLaravel\Webhooks;
+namespace Jhmilan\MandrillWebhooksLaravel\Services\Webhook;
 
-class MandrillWebhook
+abstract class Webhook
 {
     /**
      * Accept a Webhook request
@@ -18,6 +18,9 @@ class MandrillWebhook
 
     }
 
+    /**
+     * Handle a webhook
+     */
     public function handle()
     {
         \Log::debug('handling');
