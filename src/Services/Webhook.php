@@ -2,6 +2,8 @@
 
 namespace Jhmilan\MandrillWebhooksLaravel\Services;
 
+use Jhmilan\MandrillWebhooksLaravel\Contracts\Webhook as WebhookContract;
+
 abstract class Webhook implements WebhookContract
 {
     /**
