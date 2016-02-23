@@ -2,7 +2,7 @@
 
 namespace Jhmilan\MandrillWebhooksLaravel\Services;
 
-abstract class Webhook
+abstract class Webhook implements WebhookContract
 {
     /**
      * Accept a Webhook request
