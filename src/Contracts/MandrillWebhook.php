@@ -1,5 +1,5 @@
 <?php
-namespace Jhmilan\MandrillWebhooksLaravel\Contracts\Webhook;
+namespace Jhmilan\MandrillWebhooksLaravel\Contracts;
 
 interface MandrillWebhook extends Webhook
 {

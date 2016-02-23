@@ -1,6 +1,6 @@
 <?php
 
-namespace Jhmilan\MandrillWebhooksLaravel\Services\Webhook;
+namespace Jhmilan\MandrillWebhooksLaravel\Services;
 
 abstract class Webhook
 {
