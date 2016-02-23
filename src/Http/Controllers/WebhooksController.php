@@ -4,7 +4,7 @@ namespace Jhmilan\MandrillWebhooksLaravel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jhmilan\MandrillWebhooksLaravel\Webhooks\MandrillWebhook;
+use Jhmilan\MandrillWebhooksLaravel\Contracts\MandrillWebhook;
 
 class WebhooksController extends Controller
 {
@@ -21,7 +21,7 @@ class WebhooksController extends Controller
 
         $webhook = MandrillWebhook::accept($webhook, $url, $signature, $body);
 
-        $this->webhook->handle();
+        //$this->webhook->handle();
         return response()->json([]);
     }
 }
