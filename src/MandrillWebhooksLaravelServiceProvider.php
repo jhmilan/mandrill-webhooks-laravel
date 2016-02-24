@@ -59,8 +59,7 @@ class MandrillWebhooksLaravelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        foreach (config('mandrillwebhookslaravel.services') as $contract => $service) {
-        \Log::debug("binding $contract, $service");
+        foreach ($this->app->config('mandrillwebhookslaravel.services') as $contract => $service) {
             $this->app->bind($contract, $service);
         }
     }
