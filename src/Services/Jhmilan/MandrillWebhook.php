@@ -2,10 +2,10 @@
 /**
  * Tweak the namespace to match your filesystem if necessary
  */
-namespace App\MandrillWebhooksLaravel\Services\Jhmilan;
+namespace App\Services\Jhmilan;
 
 use Jhmilan\MandrillWebhooksLaravel\Services\Webhook as WebhookService;
-use Jhmilan\MandrillWebhooksLaravel\Contracts\Webhook as WebhookContract;
+use Jhmilan\MandrillWebhooksLaravel\Contracts\MandrillWebhook as WebhookContract;
 
 class MandrillWebhook extends WebhookService implements WebhookContract
 {
